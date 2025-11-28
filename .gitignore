@@ -1,0 +1,19 @@
+# LaTeX auxiliary and temporary files
+*.aux
+*.log
+*.bbl
+*.blg
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*~
+# _minted*
+
+# Build artifacts (e.g., the PDF file)
+# It's often recommended to build the PDF on the fly and not commit it.
+# If you want to ignore the PDF, uncomment the following line:
+# *.pdf

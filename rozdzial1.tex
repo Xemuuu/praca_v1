@@ -1,0 +1,108 @@
+\chapter{Wstęp}\label{cha:wstep}
+
+\LaTeX ci(\cite{Dil00}, \cite{Lam92}).
+%---------------------------------------------------------------------------
+
+\section{Wprowadzenie do problematyki}\label{sec:wprowadzenieDoProblematyki}
+
+Analiza danych nieustrukturyzowanych, w szczególności obrazów, stanowi istotny obszar 
+rozwoju współczesnych systemów informatycznych. W sektorach takich jak medycyna, 
+przemysł czy archiwizacja cyfrowa, dane wizualne stanowią coraz większą część 
+przetwarzanych informacji. Przez ostatnią dekadę standardem w ich analizie były metody 
+wizji komputerowej oparte na splotowych sieciach neuronowych. Choć rozwiązania te 
+sprawdzają się w zadaniach klasyfikacji, okazują się niewystarczające w bardziej 
+złożonych procesach wymagających głębokiego zrozumienia semantyki sceny oraz relacji 
+między obiektami.
+
+Istotną zmianę w podejściu do przetwarzania obrazu przyniosła adaptacja architektury 
+Transformer, pierwotnie dedykowanej przetwarzaniu języka naturalnego. Umożliwiło to rozwój 
+modeli multimodalnych, które potrafią przetwarzać sygnał wizualny i tekstowy we wspólnej 
+przestrzeni wektorowej. Rozwiązania te, reprezentowane przez architektury takie 
+jak BLIP czy LLaVA, pozwalają na automatyzację zadań eksperckich, w tym generowanie 
+opisów radiologicznych na podstawie zdjęć RTG czy ekstrakcję danych z 
+dokumentacji technicznej.
+
+Mimo potencjału dużych modeli fundamentowych, ich wdrożenie w specyficznych 
+środowiskach produkcyjnych wiąże się z ograniczeniami technicznymi i prawnymi. 
+Modele trenowane na ogólnych zbiorach danych często generują opisy nieprecyzyjne 
+merytorycznie w dziedzinach wąskospecjalistycznych, takich jak diagnostyka obrazowa czy 
+botanika. Dodatkowym wyzwaniem jest konieczność uzyskania danych wyjściowych w 
+ustrukturyzowanych formatach, takich jak JSON lub CSV, co jest niezbędne do integracji 
+systemów sztucznej inteligencji z bazami danych. Istotną barierą są również regulacje 
+dotyczące prywatności, które często wymuszają przetwarzanie danych lokalnie, na sprzęcie o 
+ograniczonych zasobach pamięciowych, co wyklucza użycie zewnętrznych interfejsów API.\@ 
+
+W tym kontekście kluczowym zagadnieniem inżynierskim staje się opracowanie efektywnych 
+metod adaptacji istniejących modeli otwartoźródłowych do specyficznych wymagań domenowych.
+
+%---------------------------------------------------------------------------
+
+\section{Cel pracy i pytania badawcze:}\label{sec:celePracy}
+
+Głównym celem pracy jest zbadanie efektywności adaptacji modeli typu Vision 
+Transformer do realizacji zaawansowanych zadań generowania opisów w domenach 
+specjalistycznych. Praca ma charakter badawczo-wdrożeniowy i koncentruje się na 
+empirycznej weryfikacji wpływu różnych strategii uczenia maszynowego na zdolność 
+modelu do przyswajania wiedzy eksperckiej oraz formalnej.
+
+Cel ten zostanie zrealizowany poprzez następujące działania szczegółowe:
+\begin{itemize}
+\item \textbf{Analiza porównawcza architektur:} Zbadanie wpływu rozmiaru oraz budowy 
+modelu na jakość adaptacji do nowych zadań przy ograniczonym zbiorze treningowym.
+\item \textbf{Ewaluacja metod treningowych:} Porównanie klasycznego pełnego dostrajania, 
+zwanego Full Fine-Tuning, z nowoczesnymi metodami efektywnymi parametrowo, 
+takimi jak LoRA i QLoRA.\@  Celem jest ustalenie, czy metody redukujące 
+zapotrzebowanie na pamięć VRAM wiążą się z degradacją zdolności dyskryminacyjnych 
+modelu w zadaniach wymagających wysokiej precyzji.
+\item \textbf{Weryfikacja zdolności strukturalnych:} Zbadanie możliwości nauczenia 
+modelu wizyjnego roli parsera, czyli generowania poprawnych składniowo 
+plików JSON bezpośrednio z obrazu, co stanowi alternatywę dla 
+klasycznych potoków OCR.\@ 
+\item \textbf{Optymalizacja wydajności:} Określenie kompromisu pomiędzy czasem 
+treningu i zużyciem zasobów sprzętowych a jakością końcową modelu.
+\end{itemize}
+
+%---------------------------------------------------------------------------
+
+\section{Zakres pracy:}\label{sec:zakresPracy}
+
+Praca obejmuje spektrum działań inżynierskich, począwszy od przygotowania danych, 
+poprzez eksperymenty uczenia maszynowego, aż po wdrożenie rozwiązania 
+w formie aplikacji.
+
+Warstwa teoretyczna zawiera przegląd literatury dotyczącej ewolucji modeli 
+językowo-wizyjnych, ze szczególnym uwzględnieniem zjawisk takich jak zapaść 
+modalności wizyjnej, znana w literaturze jako Vision Token Collapse, oraz metod 
+przeciwdziałania katastrofalnemu zapominaniu wiedzy.
+
+W części badawczej wykorzystane zostaną wybrane modele dostępne na licencji 
+Open Source. Eksperymenty zostaną przeprowadzone na autorskich lub specjalnie 
+przygotowanych podzbiorach danych, reprezentujących dwa odmienne 
+wyzwania: domenę medyczną lub przyrodniczą, gdzie kluczowa jest precyzja wizualna, 
+oraz domenę inżynierską, wymagającą zachowania struktury logicznej danych wyjściowych. 
+W ramach procedury badawczej zaimplementowane i przetestowane zostaną różne 
+konfiguracje treningowe, uwzględniające techniki kwantyzacji oraz mieszanej 
+precyzji obliczeń.
+
+Zakres pracy w warstwie aplikacyjnej obejmuje zaprojektowanie i implementację 
+prototypu systemu w architekturze klient-serwer. Część backendowa, oparta na 
+języku Python i bibliotece PyTorch, będzie odpowiedzialna za inferencję 
+modeli i obsługę żądań. Część frontendowa dostarczy interfejs graficzny 
+umożliwiający użytkownikowi końcowemu interakcję z systemem, wybór modelu oraz 
+wizualizację wyników w formie tekstowej lub ustrukturyzowanej.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

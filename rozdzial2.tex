@@ -1,0 +1,52 @@
+\chapter{Podstawy teoretyczne (Przegląd literatury)}\label{cha:podstawyTeoretyczne}
+
+\section{Architektury multimodalne (Vision-Language Model)}\label{sec:architekturyMultimodalne}
+
+Tradycyjne podejście do uczenia maszynowego traktowało analizę obrazu i 
+przetwarzanie tekstu jako dwa odrębne problemy inżynieryjne, rozwiązywane 
+za pomocą niekompatybilnych architektur. Systemy wizyjne, oparte głównie 
+na splotowych sieciach neuronowych, specjalizowały się w ekstrahowaniu cech 
+przestrzennych z macierzy pikseli w celu klasyfikacji obiektów 
+(np. przypisania etykiety "samochód"). Z kolei systemy językowe skupiały 
+się na analizie sekwencyjnej i modelowaniu gramatyki. Takie rozdzielenie 
+uniemożliwiało tworzenie systemów zdolnych do pełnego zrozumienia sceny, 
+w której treść wizualna jest nierozerwalnie związana z opisem semantycznym. 
+Klasyfikacja obrazu daje jedynie zbiór etykiet, natomiast dopiero wygenerowanie 
+opisu w języku naturalnym pozwala na uchwycenie relacji, akcji i atrybutów 
+obiektów widocznych na zdjęciu.
+
+Rozwiązaniem tego problemu są modele multimodalne typu Vision-Language (VLM). 
+Ich zadaniem jest integracja danych o skrajnie różnej strukturze: ciągłego 
+sygnału wizualnego (wartości intensywności pikseli) oraz dyskretnego sygnału 
+tekstowego (tokeny słownikowe). Wyzwanie inżynieryjne polega tutaj na stworzeniu 
+mechanizmu, który pozwoli komputerowi "zrozumieć", że matematyczna reprezentacja 
+obrazu psa jest tożsama z matematyczną reprezentacją słowa "pies". Modele VLM 
+realizują to poprzez rzutowanie obu typów danych do wspólnej, wielowymiarowej 
+przestrzeni wektorowej. W tej przestrzeni wektory reprezentujące obraz i 
+odpowiadający mu tekst znajdują się blisko siebie, co pozwala na wykonywanie 
+operacji logicznych łączących wzrok z językiem, takich jak generowanie podpisów 
+czy wyszukiwanie obrazów za pomocą zapytań tekstowych.
+
+%---------------------------------------------------------------------------
+
+\subsection{Ewolucja paradygmatów: od CNN-RNN do Transformerów}\label{subsec:ewolucjaParadygmatow}
+
+Do momentu spopularyzowania architektury Transformer (ok. 2020 roku), 
+domyślnym standardem w zadaniach Image Captioning były architektury hybrydowe, 
+łączące splotowe sieci neuronowe (CNN) z rekurencyjnymi sieciami neuronowymi (RNN).
+Podejście to opierało się na paradygmacie Encoder-Decoder, w którym dwie 
+odrębne sieci współpracowały ze sobą w sekwencyjnym potoku przetwarzania.
+
+%---------------------------------------------------------------------------
+
+\subsubsection{CNN jako enkoder obrazu}\label{subsubsec:cnnJakoEnkoderObrazu}
+
+
+
+%---------------------------------------------------------------------------
+
+\subsubsection{RNN jako dekoder tekstu}\label{subsubsec:rnnJakoDekoderTekstu}
+
+
+
+
